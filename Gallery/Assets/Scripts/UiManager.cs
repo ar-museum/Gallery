@@ -5,29 +5,62 @@ using UnityEngine;
 using System.Net;
 using System.IO;
 
+
+[System.Serializable]
+public class ExhibitData
+{
+    public string titlu;
+    public string descriere;
+    public string denumire;
+    public string autor;
+}
+
+[System.Serializable]
+public class ExhibitArray
+{
+    public List<ExhibitData> questions;
+}
+
+[System.Serializable]
+public class JsonToObject
+{
+    public ExhibitData loadJson()
+    {
+        using (StreamReader r = new StreamReader("Assets/StreamingAssets/op1.json"))
+        {
+            string json = r.ReadToEnd();
+            ExhibitData exhibit = JsonUtility.FromJson<ExhibitData>(json);
+            return exhibit;
+        }
+    }
+}
+
+
 public class UiManager : MonoBehaviour
 {
-    //private const string Path = "Sprites/sd.jpg";
-    //public Image imgOpera;
     public Text txtDescription;
     public Text txtTitle;
+
     [SerializeField] private UnityEngine.UI.Image imgOpera = null;
     // Start is called before the first frame update
     void Start()
     {
+        JsonToObject jo = new JsonToObject();
+        ExhibitData exhibit = jo.loadJson();
+
         //sprite = Resources.Load<Sprite>(Path);
-        txtDescription.text = "Asta e o descriere";
-        txtTitle.text = "Title";
+        txtDescription.text = exhibit.descriere;
+        txtTitle.text = exhibit.titlu;
         if (imgOpera != null)
         {
-            imgOpera.sprite = Resources.Load<Sprite>("Sprites/sd");
+            imgOpera.sprite = Resources.Load<Sprite>("Sprites/" + exhibit.denumire);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public string GetHtmlFromUri(string resource)
@@ -63,3 +96,5 @@ public class UiManager : MonoBehaviour
         return html;
     }
 }
+
+
