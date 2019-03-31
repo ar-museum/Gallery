@@ -26,7 +26,7 @@ public class JsonToObject
 {
     public ExhibitData loadJson()
     {
-        using (StreamReader r = new StreamReader("Assets/StreamingAssets/op1.json"))
+        using (StreamReader r = new StreamReader("Assets/StreamingAssets/op2.json"))
         {
             string json = r.ReadToEnd();
             ExhibitData exhibit = JsonUtility.FromJson<ExhibitData>(json);
