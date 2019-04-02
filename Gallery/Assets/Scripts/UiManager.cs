@@ -62,7 +62,7 @@ public class UiManager : MonoBehaviour
     {
 
     }
-
+    /*
     public string GetHtmlFromUri(string resource)
     {
         string html = string.Empty;
@@ -95,6 +95,7 @@ public class UiManager : MonoBehaviour
         }
         return html;
     }
+    */
 }
 
 
