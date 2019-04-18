@@ -45,12 +45,15 @@ public class UiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         JsonToObject jo = new JsonToObject();
         ExhibitData exhibit = jo.loadJson();
+        //RectTransform rt = GetComponent<RectTransform>();
+        //rt.sizeDelta = new Vector2(rt.sizeDelta.x, 1000);
 
         //sprite = Resources.Load<Sprite>(Path);
         txtDescription.text = exhibit.descriere;
-        txtTitle.text = exhibit.titlu;
+        txtTitle.text = exhibit.titlu + '\n';
         if (imgOpera != null)
         {
             imgOpera.sprite = Resources.Load<Sprite>("Sprites/" + exhibit.denumire);
