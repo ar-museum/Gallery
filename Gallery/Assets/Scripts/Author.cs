@@ -45,8 +45,7 @@ public class Author : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadContent();
-        Invoke("setContentDimension", 0.01f);
+        
     }
 
     void loadContent()
@@ -90,7 +89,27 @@ public class Author : MonoBehaviour
         thisRectTransform.sizeDelta = new Vector2(thisRectTransform.sizeDelta.x, thisRectTransform.sizeDelta.y - (0.015f * thisRectTransform.sizeDelta.y * thisRectTransform.sizeDelta.y / 1000));
 
         //offset used to keep image aspect ratio
-        float offset = imgRectTransform.rect.height - firstHeight;
+        float offset = 0;
+        if(File.Exists("Assets/offset.txt"))
+        {
+            Debug.Log("I exist");
+            using (TextReader reader = File.OpenText("Assets/offset.txt"))
+            {
+                offset = float.Parse(reader.ReadLine());
+                Debug.Log(offset);
+            }
+        }
+        else{
+            FileStream fs = File.Create("Assets/offset.txt");
+            string path = "Assets/offset.txt";
+            fs.Dispose();
+            using (StreamWriter writer = new StreamWriter(path, true))
+            {
+                offset = imgRectTransform.rect.height - firstHeight;
+                writer.WriteLine(offset);
+            }
+        }
+        
         imgRectTransform.offsetMin = new Vector2(imgRectTransform.offsetMin.x, offset);
         RectTransform lastChildRectTransform = lastChild.GetComponent<RectTransform>();
         lastChildRectTransform.offsetMax = new Vector2(lastChildRectTransform.offsetMax.x, offset);
@@ -102,8 +121,15 @@ public class Author : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        loadContent();
+        Invoke("setContentDimension", 0.01f);
     }
+    
+    void OnApplicationQuit()
+    {
+        File.Delete("Assets/offset.txt");
+    }
+
     /*
     public string GetHtmlFromUri(string resource)
     {
