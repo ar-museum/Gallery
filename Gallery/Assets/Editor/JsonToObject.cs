@@ -59,6 +59,7 @@ namespace Tests
             }
         }
 
+        /*
         [Test]
         public void loadJsonTestId()
         {
@@ -121,7 +122,7 @@ namespace Tests
 
                 Assert.AreEqual(actualHeight, expectedHeight);
             }
-        }
+        } */
     }
 
 
