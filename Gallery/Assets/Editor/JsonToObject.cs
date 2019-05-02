@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
+﻿using NUnit.Framework;
 using System.IO;
+using Scripts;
 
 namespace Tests
 {
@@ -16,7 +13,7 @@ namespace Tests
         {
             var json = new JsonToObject();
             ExhibitData exhibit;
-            exhibit = json.loadJson();
+            exhibit = json.loadJson<ExhibitData>();
 
             using (StreamReader r = new StreamReader("Assets/StreamingAssets/op2.json"))
             {
@@ -32,7 +29,7 @@ namespace Tests
         {
             var json = new JsonToObject();
             ExhibitData exhibit;
-            exhibit = json.loadJson();
+            exhibit = json.loadJson<ExhibitData>();
 
             using (StreamReader r = new StreamReader("Assets/StreamingAssets/op2.json"))
             {
@@ -48,7 +45,7 @@ namespace Tests
         {
             var json = new JsonToObject();
             ExhibitData exhibit;
-            exhibit = json.loadJson();
+            exhibit = json.loadJson<ExhibitData>();
 
             using (StreamReader r = new StreamReader("Assets/StreamingAssets/op2.json"))
             {
