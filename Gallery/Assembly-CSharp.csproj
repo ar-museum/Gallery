@@ -53,14 +53,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AudioPlay.cs" />
-     <Compile Include="Assets\Scripts\Author.cs" />
-     <Compile Include="Assets\Scripts\BackButton.cs" />
-     <Compile Include="Assets\Scripts\ChooseScene.cs" />
-     <Compile Include="Assets\Scripts\ChooseScene1.cs" />
-     <Compile Include="Assets\Scripts\ChooseScene2.cs" />
-     <Compile Include="Assets\Scripts\Exhibit.cs" />
-     <Compile Include="Assets\Scripts\JsonToObject.cs" />
+     <Compile Include="Assets\Scripts\Author\Author.cs" />
+     <Compile Include="Assets\Scripts\Author\ChooseScene.cs" />
+     <Compile Include="Assets\Scripts\Author\ChooseScene1.cs" />
+     <Compile Include="Assets\Scripts\Author\ChooseScene2.cs" />
+     <Compile Include="Assets\Scripts\Exhibit\AudioPlay.cs" />
+     <Compile Include="Assets\Scripts\Exhibit\BackButton.cs" />
+     <Compile Include="Assets\Scripts\Exhibit\Exhibit.cs" />
+     <Compile Include="Assets\Scripts\Helpers\Globals.cs" />
+     <Compile Include="Assets\Scripts\Helpers\JsonToObject.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\nameeee.txt" />

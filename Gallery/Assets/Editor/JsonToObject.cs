@@ -13,7 +13,7 @@ namespace Tests
         {
             var json = new JsonToObject();
             ExhibitData exhibit;
-            exhibit = json.loadJson<ExhibitData>();
+            exhibit = json.loadJson<ExhibitData>("op2");
 
             using (StreamReader r = new StreamReader("Assets/StreamingAssets/op2.json"))
             {
@@ -29,8 +29,7 @@ namespace Tests
         {
             var json = new JsonToObject();
             ExhibitData exhibit;
-            exhibit = json.loadJson<ExhibitData>();
-
+            exhibit = json.loadJson<ExhibitData>("op2");
             using (StreamReader r = new StreamReader("Assets/StreamingAssets/op2.json"))
             {
                 string actualDescription = '"' + "descriere" + '"' + ": " + exhibit.descriere;
@@ -45,8 +44,7 @@ namespace Tests
         {
             var json = new JsonToObject();
             ExhibitData exhibit;
-            exhibit = json.loadJson<ExhibitData>();
-
+            exhibit = json.loadJson<ExhibitData>("op2");
             using (StreamReader r = new StreamReader("Assets/StreamingAssets/op2.json"))
             {
                 string actualName = '"' + "denumire" + '"' + ": " + exhibit.denumire;
