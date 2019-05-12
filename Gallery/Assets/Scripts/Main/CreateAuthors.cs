@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Scripts;
+using UnityEngine.UI;
 
 public class CreateAuthors : MonoBehaviour
 {
@@ -11,23 +10,22 @@ public class CreateAuthors : MonoBehaviour
     {
         for (int i = 0; i < 10; i++)
             createButton(i);
-
     }
 
     void createButton(int index)
     {
         GameObject button = (GameObject)Instantiate(buttonPrefab);
         button.transform.SetParent(panelToAttachButtonsTo.transform);
-        button.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -150 - index *100);
+        button.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -150 - index * 100);
         button.GetComponent<RectTransform>().localScale = new Vector2(1, 1);
-        button.GetComponent<Button>().onClick.AddListener(OnClick);
-        button.transform.GetChild(0).GetComponent<Text>().text = "This is button text";
+        button.GetComponent<Button>().onClick.AddListener(delegate { OnClick(index); });
+        button.transform.GetChild(0).GetComponent<Text>().text = "This is button text " + index;
     }
 
-    void OnClick()
+    void OnClick(int index)
     {
-        Debug.Log("clicked!");
-        SceneManager.LoadScene(0);
-        Globals.exhibit = "op2";
+        Debug.Log("Clicked button " + index);
+		SceneManager.LoadScene(0);
     }
+
 }

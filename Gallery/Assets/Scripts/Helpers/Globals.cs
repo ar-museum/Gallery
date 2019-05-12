@@ -3,6 +3,6 @@
     public class Globals
     {
         public static string exhibit = "op2";
-        public static string author = "author";
+        public static string author = "Mihai Eminescu";
     }
 }
