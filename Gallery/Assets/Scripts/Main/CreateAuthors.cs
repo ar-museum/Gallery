@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using Scripts;
 
 public class CreateAuthors : MonoBehaviour
 {
@@ -25,5 +27,7 @@ public class CreateAuthors : MonoBehaviour
     void OnClick()
     {
         Debug.Log("clicked!");
+        SceneManager.LoadScene(0);
+        Globals.exhibit = "op2";
     }
 }
