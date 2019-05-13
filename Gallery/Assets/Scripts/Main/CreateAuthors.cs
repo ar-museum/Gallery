@@ -8,7 +8,7 @@ public class CreateAuthors : MonoBehaviour
     public GameObject panelToAttachButtonsTo;
     void Start()//Creates a button and sets it up
     {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 4; i++)
             createButton(i);
     }
 
@@ -16,7 +16,7 @@ public class CreateAuthors : MonoBehaviour
     {
         GameObject button = (GameObject)Instantiate(buttonPrefab);
         button.transform.SetParent(panelToAttachButtonsTo.transform);
-        button.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -150 - index * 100);
+        button.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, -250 - index * 250);
         button.GetComponent<RectTransform>().localScale = new Vector2(1, 1);
         button.GetComponent<Button>().onClick.AddListener(delegate { OnClick(index); });
         button.transform.GetChild(0).GetComponent<Text>().text = "This is button text " + index;
